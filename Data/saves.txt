@@ -1,0 +1,3 @@
+debug.txt
+test delete n.txt
+debug move.txt

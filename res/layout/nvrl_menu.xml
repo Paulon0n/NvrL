@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu	
+	xmlns:android="http://schemas.android.com/apk/res/android"    
+	android:layout_height="wrap_content" 
+	android:layout_width="wrap_content">
+	<item android:id="@+id/gear" android:icon="@drawable/gear32" android:showAsAction="always">
+		<menu android:id="@+id/programsubmenu">
+			<item android:id="@+id/p_input" android:title="Add Input">
+				<menu android:id="@+id/inputsubmenu">
+					<item android:id="@+id/textinput" android:title="Text Input (8-bit t|f)"/>
+				</menu>
+			</item>
+			<item android:id="@+id/p_output" android:title="Add Output">
+				<menu android:id="@+id/outputsubmenu">
+					<!-- <item android:id="@+id/" android:title=""/> -->
+					
+					<!-- Console Manipulators -->
+					<item android:id="@+id/textoutput" android:title="Text Output (activate, 8-bit t|f) []"/>
+					<item android:id="@+id/clearoutput" android:title="Clear Output (activate) []"/>
+					<item android:id="@+id/centerview" android:title="Center View (activate,x,y,z) []"/>
+				
+						<!-- Selection Manipulators -->
+					<item android:id="@+id/select" android:title="Selection (x1,y1,z1,x2,y2,z1) [selection id]"/>
+					<item android:id="@+id/pasteselect" android:title="Paste Selection (selection id) [selection id]"/>
+					<item android:id="@+id/moveselect" android:title="Move Selection (x,y,z,selection id) [selection id]"/>
+					<item android:id="@+id/deleteselect" android:title="Delete Selection(selection id)[]"/>
+					
+						<!-- Cluster Manipulators-->
+					<item android:id="@+id/clusterize" android:title="Clusterize (selection id) [cluster id]"/>
+					<item android:id="@+id/disablecluster" android:title="Disable Cluster (cluster id,t|f) [cluster id]"/>
+					<item android:id="@+id/onestep" android:title="Enable Steps (cluster id,t|f) []"/>
+					<item android:id="@+id/getsteps" android:title="Get Steps (cluster id) [num]"/>
+					<item android:id="@+id/setsteps" android:title="Set Steps (cluster id,num) []"/>
+					<item android:id="@+id/declusterize" android:title="Declusterize (cluster id) []"/>
+				</menu>
+			</item>
+			<item android:id="@+id/showerrors" 
+				android:title="Show Error Log"/>
+			
+		</menu>
+	</item>
+	<item android:icon="@drawable/neuronl232" android:showAsAction="always"> 
+		<menu android:id="@+id/neuronsubmenu">
+			<item android:id="@+id/n_add" android:title="Add Neuron"/>
+			<item android:id="@+id/n_move" 		android:title="Move"/>
+			<item android:id="@+id/n_prop" 		android:title="Properties"/>
+			<item android:id="@+id/n_name" 		android:title="Name"/>
+			<item android:id="@+id/n_energy" 	android:title="Energy"/>
+			<item android:id="@+id/n_threshold"	android:title="Threshold"/>
+			<item android:id="@+id/n_position"	android:title=""/>
+			<item android:id="@+id/n_inputs"	android:title="Inputs Editor"/>
+			<item android:id="@+id/n_outputs"	android:title="Outputs Editor"/>
+			<item android:id="@+id/n_cluster"	android:title="Clusterize"/>
+			<item android:id="@+id/n_clamp"		android:title="Clamped"/>
+			<item android:id="@+id/n_min"		android:title="Min"/>
+			<item android:id="@+id/n_max"		android:title="Max"/>
+			<item android:id="@+id/n_delete"	android:title="Delete"/>
+			
+			<!-- Neuron Manipulators -->
+			
+			<item android:id="@+id/addneuron" android:title="Add Neuron (activate,x,y,z,threshold) [N id]"/>
+			<item android:id="@+id/copyneuron" android:title="Copy Neuron (activate,N id,x,y,z) [N id]"/>
+			<item android:id="@+id/moveneuron" android:title="Move Neuron (activate,N id,x,y,z) []"/>
+			<item android:id="@+id/setclamp" android:title="Clamp Energy (activate,N id,t|f) []"/>
+			<item android:id="@+id/setclampmax" android:title="Clamp Max (activate,N id,num) []"/>
+			<item android:id="@+id/setclampmin" android:title="Clamp Min (activate,N id,num) []"/>
+			<item android:id="@+id/getinputsize" android:title="Input Size (activate,N id) [num]"/>
+			<item android:id="@+id/getinputneuron" android:title="Get Input(N id, num)[C id]"/>
+			<item android:id="@+id/getoutputsize" android:title="Output Size (activate,N id) [num]"/>
+			<item android:id="@+id/getoutputneuron" android:title="Get Output(N id, num) [C id]"/>
+			<item android:id="@+id/deleteneuron" android:title="Delete Neuron (N id) []"/>
+			
+		</menu>
+	</item>
+
+	<item android:icon="@drawable/connectionl32"  android:showAsAction="always">
+		<menu>
+			<item 
+				android:id="@+id/c_add"		
+				android:title="Add Connection" 
+				android:showAsAction="always"
+			/>
+			<item android:id="@+id/c_prop"		android:title="Properties"/>
+			<item android:id="@+id/c_type"		android:title="Type"/>
+			<item android:id="@+id/c_weight"	android:title="Weight"/>
+			<item android:id="@+id/c_delete"	android:title="Delete"/>
+			<!-- Connection Manipulators -->
+			<item android:id="@+id/connect" android:title="Connect (N id [in], N id[out], type id ) [C id]"/>
+			<item android:id="@+id/getconnection" android:title="Get Connection (N id [in], N id[out]) [C id]"/>
+			<item android:id="@+id/setweight" android:title="Set Weight(C id, weight num ) []"/>
+			<item android:id="@+id/disconnect" android:title="Disconnect (C id) []"/>
+			
+		</menu>
+	</item>
+	<item android:icon="@drawable/layerl32" android:showAsAction="always">
+		<menu>
+			<item android:id="@+id/l_up"	android:title="+ Layer"/>
+			<item android:id="@+id/l_goto"	android:title="Goto Layer"/>
+			<item android:id="@+id/l_down"	android:title="- Layer"/>
+			<item android:id="@+id/set_view"	android:title="Set view [x,y,z]"/>
+		</menu>
+	</item>
+	<item 
+		android:id="@+id/undo"
+		android:icon="@drawable/leftturnarrow32" 
+		android:showAsAction="always"
+	/>
+	<item 
+		android:id="@+id/redo"	
+		android:icon="@drawable/rightturnarrow32" 
+		android:showAsAction="always"
+	/>
+	
+	<item android:id="@+id/p_new"			android:title="New"/>
+	<item android:id="@+id/p_open"			android:title="Open"/>
+	<item android:id="@+id/p_save"			android:title="Save"/>
+	<item android:id="@+id/p_import"		android:title="Import"/>
+	<item android:id="@+id/p_preferences"	android:title="Preferences"/>
+	<item android:id="@+id/exit"			android:title="Exit"/>
+</menu>
+

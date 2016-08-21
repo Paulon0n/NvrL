@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="wrap_content">
+
+	<RelativeLayout
+		android:id="@+id/edit_neuralnet"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+	</RelativeLayout>
+
+	<SlidingDrawer
+		android:id="@+id/slidingDrawer"
+		android:layout_height="400dp"
+		android:layout_width="match_parent"
+		android:content="@+id/content"
+		android:handle="@+id/handle"
+		android:alpha="1.0"
+		android:layout_alignBottom="@id/edit_neuralnet">
+
+		<Button
+			android:id="@+id/handle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonStyleSmall"
+			android:text="↑"/>
+
+		<LinearLayout
+			android:id="@+id/content"
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+			android:orientation="vertical">
+
+			<EditText
+				android:id="@+id/text"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1.0"
+				android:inputType="none"
+				android:selectable="true"
+				android:saveEnabled="true"
+				android:textIsSelectable="true"
+				android:typeface="monospace"
+				android:gravity="bottom|left"/>
+
+			<EditText
+				android:id="@+id/input"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:selectable="true"
+				android:typeface="monospace"
+				android:inputType="text"/>
+
+		</LinearLayout>
+
+	</SlidingDrawer>
+	
+</RelativeLayout>
+

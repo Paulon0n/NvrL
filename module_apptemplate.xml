@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_apptemplate" default="compile.module.apptemplate">
+  <dirname property="module.apptemplate.basedir" file="${ant.file.module_apptemplate}"/>
+  
+  <property name="module.jdk.home.apptemplate" value="${jdk.home.android_4.3_platform}"/>
+  <property name="module.jdk.bin.apptemplate" value="${jdk.bin.android_4.3_platform}"/>
+  <property name="module.jdk.classpath.apptemplate" value="jdk.classpath.android_4.3_platform"/>
+  
+  <property name="compiler.args.apptemplate" value="${compiler.args}"/>
+  
+  <property name="apptemplate.output.dir" value="${module.apptemplate.basedir}/bin/classes"/>
+  <property name="apptemplate.testoutput.dir" value="${module.apptemplate.basedir}/bin/classes"/>
+  
+  <path id="apptemplate.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="apptemplate.module.production.classpath">
+    <path refid="${module.jdk.classpath.apptemplate}"/>
+  </path>
+  
+  <path id="apptemplate.runtime.production.module.classpath">
+    <pathelement location="${apptemplate.output.dir}"/>
+  </path>
+  
+  <path id="apptemplate.module.classpath">
+    <path refid="${module.jdk.classpath.apptemplate}"/>
+    <pathelement location="${apptemplate.output.dir}"/>
+  </path>
+  
+  <path id="apptemplate.runtime.module.classpath">
+    <pathelement location="${apptemplate.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.apptemplate">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.apptemplate">
+    <patternset refid="excluded.from.module.apptemplate"/>
+  </patternset>
+  
+  <path id="apptemplate.module.sourcepath">
+    <dirset dir="${module.apptemplate.basedir}">
+      <include name="src"/>
+      <include name="gen"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.apptemplate" depends="compile.module.apptemplate.production,compile.module.apptemplate.tests" description="Compile module AppTemplate"/>
+  
+  <target name="compile.module.apptemplate.production" depends="register.custom.compilers" description="Compile module AppTemplate; production classes">
+    <mkdir dir="${apptemplate.output.dir}"/>
+    <javac2 destdir="${apptemplate.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.apptemplate}/javac">
+      <compilerarg line="${compiler.args.apptemplate}"/>
+      <bootclasspath refid="apptemplate.module.bootclasspath"/>
+      <classpath refid="apptemplate.module.production.classpath"/>
+      <src refid="apptemplate.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.apptemplate"/>
+    </javac2>
+    
+    <copy todir="${apptemplate.output.dir}">
+      <fileset dir="${module.apptemplate.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.apptemplate.basedir}/gen">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.apptemplate.tests" depends="register.custom.compilers,compile.module.apptemplate.production" description="compile module AppTemplate; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.apptemplate" description="cleanup module">
+    <delete dir="${apptemplate.output.dir}"/>
+    <delete dir="${apptemplate.testoutput.dir}"/>
+  </target>
+</project>

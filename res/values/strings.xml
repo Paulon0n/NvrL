@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Neural VPL</string>
+    <string name="connection_prompt">Choose a Connection Type.</string>
+        <string-array name="connection_types"> 
+		<item>Push (default)</item> 
+		<item>Inhibiter</item>
+		<item>Energy to Threshold</item> 
+		<item>Threshold to Energy</item> 
+		<item>Increase Threshold</item> 
+		<item>Decrease Threshold</item> 
+		<item>Pull (sap energy)</item> 
+		<!--<item>Exciter (increase signal)</item>--> 
+        </string-array>
+        <string name="zoom">Zoom</string>
+        <string name="out">Out</string>
+        <string name="in">In</string>
+        
+</resources>
