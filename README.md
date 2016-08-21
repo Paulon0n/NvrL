@@ -1,15 +1,10 @@
 #NvrL
-
-Program using neurons.
-====
+######Program using neurons.
 ##Features
-
-Bit programming with neurons.
-Neurons that manipulate other neurons.
-Form neural algorithums with bit neurons or with adaptive networks.
-====
-
-Note: NvrL is a prototype not meant to be a legitimate programming language.  NvrL becoming a platform for programming may change after a successful proof of concept, or additionally if an emerging following requires further optimizations and/or features.
+######Bit programming with neurons.
+######Neurons that manipulate other neurons.
+#####Form neural algorithums with bit neurons or with adaptive networks.
+######Note: NvrL is a prototype not meant to be a legitimate programming language.  NvrL becoming a platform for programming may change after a successful proof of concept, or additionally if an emerging following requires further optimizations and/or features.
 
 ====
 ###Story
